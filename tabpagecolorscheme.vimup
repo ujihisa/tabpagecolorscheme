@@ -1,4 +1,5 @@
 "script_name": tabpagecolorscheme
+"script_id": "3358"
 "script_type": utility
 "script_package": "{script_name}-{version}.zip"
 "required_vim_version": '7.3'
