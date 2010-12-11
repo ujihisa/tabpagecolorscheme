@@ -1,0 +1,16 @@
+"script_name": tabpagecolorscheme
+"script_type": utility
+"script_package": "{script_name}-{version}.zip"
+"required_vim_version": '7.3'
+"summary": Each tab have its own colorscheme
+"detailed_description": |
+  Each tab have its own colorscheme.
+
+  * http://github.com/ujihisa/tabpagecolorscheme (development)
+
+  It's handy when you also use unite-colorscheme.
+"install_details": |
+  Just copy the file into your &rtp dir.
+"versions":
+  - '1.0': Initial upload
+# vim: filetype=yaml
