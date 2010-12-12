@@ -5,7 +5,7 @@
 "required_vim_version": '7.3'
 "summary": Each tab have its own colorscheme
 "detailed_description": |
-  Each tab have its own colorscheme.
+  Each tab have its own colorscheme, using :Tcolorscheme command which acts as :colorscheme
 
   * http://github.com/ujihisa/tabpagecolorscheme (development)
 
@@ -13,5 +13,13 @@
 "install_details": |
   Just copy the file into your &rtp dir.
 "versions":
+  - '1.1': |
+      * added a use-cpo-save mechanism
+      * stopped multiple inclusions
+      * added color scheme completion
+      * wrapped the auto-commands up into a auto-command group
+      * allow the command to be called w/o any arguments so it would display the current colorscheme just like the :colo command does
+      * shorten the command name
+      * (Thanks Peter Rincker!)
   - '1.0': Initial upload
 # vim: filetype=yaml
