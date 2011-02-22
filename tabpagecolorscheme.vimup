@@ -13,6 +13,9 @@
 "install_details": |
   Just copy the file into your &rtp dir.
 "versions":
+  - '1.2': |
+      * bugfix: in case for g:colors_name is missing
+      * don't run colorscheme command when the before/after colorschemes are same
   - '1.1': |
       * added a use-cpo-save mechanism
       * stopped multiple inclusions
