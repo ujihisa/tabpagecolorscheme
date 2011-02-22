@@ -10,8 +10,10 @@ command! -bar -nargs=? -complete=customlist,s:Colors Tcolorscheme call s:Tabpage
 
 function! s:TabpageColorscheme(...)
   if a:0 == 1
-    execute 'colorscheme ' . a:1
-    let t:colorscheme = g:colors_name
+    if a:1 !=# t:colorscheme
+      execute 'colorscheme ' . a:1
+      let t:colorscheme = g:colors_name
+    endif
   else
     echo t:colorscheme
   endif
@@ -27,7 +29,7 @@ augroup TabpageColorscheme
         \   if !exists('t:colorscheme')
         \ |   let t:colorscheme = s:colors_name()
         \ | endif
-        \ | execute 'colorscheme' t:colorscheme
+        \ | call s:TabpageColorscheme(t:colorscheme)
   autocmd VimEnter * let t:colorscheme = s:colors_name()
 augroup END
 
