@@ -17,14 +17,18 @@ function! s:TabpageColorscheme(...)
   endif
 endfunction
 
+function! s:colors_name()
+  return exists("g:colors_name") ? g:colors_name : ""
+endfunction
+
 augroup TabpageColorscheme
   au!
   autocmd TabEnter *
         \   if !exists('t:colorscheme')
-        \ |   let t:colorscheme = g:colors_name
+        \ |   let t:colorscheme = s:colors_name()
         \ | endif
         \ | execute 'colorscheme' t:colorscheme
-  autocmd VimEnter * let t:colorscheme = g:colors_name
+  autocmd VimEnter * let t:colorscheme = s:colors_name()
 augroup END
 
 function! s:Colors(A, L, P)
