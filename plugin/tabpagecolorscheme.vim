@@ -10,7 +10,7 @@ command! -bar -nargs=? -complete=customlist,s:Colors Tcolorscheme call s:Tabpage
 
 function! s:TabpageColorscheme(...)
   if a:0 == 1
-    if a:1 !=# t:colorscheme
+    if a:1 !=# s:colors_name()
       execute 'colorscheme ' . a:1
       let t:colorscheme = g:colors_name
     endif
