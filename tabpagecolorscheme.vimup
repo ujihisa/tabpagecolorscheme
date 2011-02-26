@@ -13,6 +13,8 @@
 "install_details": |
   Just copy the file into your &rtp dir.
 "versions":
+  - '1.3': |
+      * a fatal bugfix: it didn't work actually
   - '1.2': |
       * bugfix: in case for g:colors_name is missing
       * don't run colorscheme command when the before/after colorschemes are same
