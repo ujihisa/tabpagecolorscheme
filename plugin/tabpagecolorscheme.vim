@@ -25,7 +25,7 @@ endfunction
 
 augroup TabpageColorscheme
   au!
-  autocmd TabEnter *
+  autocmd TabEnter * nested
         \   if !exists('t:colorscheme')
         \ |   let t:colorscheme = s:colors_name()
         \ | endif
