@@ -13,6 +13,9 @@
 "install_details": |
   Just copy the file into your &rtp dir.
 "versions":
+  - '1.4': |
+      * license: GPLv3+
+      * bugfix: g:colors_name is bad
   - '1.3': |
       * a fatal bugfix: it didn't work actually
   - '1.2': |
