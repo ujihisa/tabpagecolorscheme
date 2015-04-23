@@ -12,7 +12,11 @@ function! s:TabpageColorscheme(...)
   if a:0 == 1
     if a:1 !=# s:colors_name()
       execute 'colorscheme ' . a:1
-      let t:colorscheme = g:colors_name
+      " Don't trust g:colors_name, because
+      "   1. Some legacy colorschemes do't define it
+      "   2. Some colorschemes even put wrong values; like wrong upcase/downcase.
+      " let t:colorscheme = g:colors_name
+      let t:colorscheme = a:1
     endif
   else
     echo t:colorscheme
