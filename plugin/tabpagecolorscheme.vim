@@ -9,7 +9,7 @@ let g:loaded_tabpagecolorscheme = 1
 command! -bar -nargs=? -complete=customlist,tabpagecolorscheme#colors Tcolorscheme call tabpagecolorscheme#run(<f-args>)
 
 augroup TabpageColorscheme
-  au!
+  autocmd!
   autocmd TabEnter * nested
         \   if !exists('t:colorscheme')
         \ |   let t:colorscheme = tabpagecolorscheme#colors_name()
