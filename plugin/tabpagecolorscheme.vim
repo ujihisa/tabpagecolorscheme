@@ -6,44 +6,17 @@ if exists("g:loaded_tabpagecolorscheme")
 endif
 let g:loaded_tabpagecolorscheme = 1
 
-command! -bar -nargs=? -complete=customlist,s:Colors Tcolorscheme call s:TabpageColorscheme(<f-args>)
-
-function! s:TabpageColorscheme(...)
-  if a:0 == 1
-    if a:1 !=# s:colors_name()
-      execute 'colorscheme ' . a:1
-      " Don't trust g:colors_name, because
-      "   1. Some legacy colorschemes do't define it
-      "   2. Some colorschemes even put wrong values; like wrong upcase/downcase.
-      " let t:colorscheme = g:colors_name
-      let t:colorscheme = a:1
-    endif
-  else
-    echo t:colorscheme
-  endif
-endfunction
-
-function! s:colors_name()
-  return exists("g:colors_name") ? g:colors_name : ""
-endfunction
+command! -bar -nargs=? -complete=customlist,tabpagecolorscheme#colors Tcolorscheme call tabpagecolorscheme#run(<f-args>)
 
 augroup TabpageColorscheme
   au!
   autocmd TabEnter * nested
         \   if !exists('t:colorscheme')
-        \ |   let t:colorscheme = s:colors_name()
+        \ |   let t:colorscheme = tabpagecolorscheme#colors_name()
         \ | endif
-        \ | call s:TabpageColorscheme(t:colorscheme)
-  autocmd VimEnter * let t:colorscheme = s:colors_name()
+        \ | call tabpagecolorscheme#run(t:colorscheme)
+  autocmd VimEnter * let t:colorscheme = tabpagecolorscheme#colors_name()
 augroup END
-
-function! s:Colors(A, L, P)
-  let l:colors = []
-  for l:item in split(globpath(&rtp, 'colors/' . a:A . '*.vim'), "\n")
-    call add(l:colors, fnamemodify(l:item, ":t:r"))
-  endfor
-  return l:colors
-endfunction
 
 let g:unite_colorscheme_command = 'Tcolorscheme'
 
