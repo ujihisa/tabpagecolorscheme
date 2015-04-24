@@ -12,10 +12,10 @@ augroup TabpageColorscheme
   autocmd!
   autocmd TabEnter * nested
         \   if !exists('t:colorscheme')
-        \ |   let t:colorscheme = tabpagecolorscheme#colors_name()
+        \ |   let t:colorscheme = get(g:, 'colors_name', '')
         \ | endif
         \ | call tabpagecolorscheme#command(t:colorscheme)
-  autocmd VimEnter * let t:colorscheme = tabpagecolorscheme#colors_name()
+  autocmd VimEnter * let t:colorscheme = get(g:, 'colors_name', '')
 augroup END
 
 let g:unite_colorscheme_command = 'Tcolorscheme'

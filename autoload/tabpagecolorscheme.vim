@@ -10,7 +10,7 @@ function! tabpagecolorscheme#command(...)
 endfunction
 
 function! tabpagecolorscheme#set(colorname)
-  if a:colorname !=# tabpagecolorscheme#colors_name()
+  if a:colorname !=# get(g:, 'colors_name', '')
     execute 'colorscheme ' . a:colorname
     " Don't trust g:colors_name, because
     "   1. Some legacy colorschemes do't define it
@@ -18,10 +18,6 @@ function! tabpagecolorscheme#set(colorname)
     " let t:colorscheme = g:colors_name
     let t:colorscheme = a:colorname
   endif
-endfunction
-
-function! tabpagecolorscheme#colors_name()
-  return exists("g:colors_name") ? g:colors_name : ""
 endfunction
 
 function! tabpagecolorscheme#colors(A, L, P)
