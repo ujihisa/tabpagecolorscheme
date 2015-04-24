@@ -1,18 +1,22 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! tabpagecolorscheme#run(...)
+function! tabpagecolorscheme#command(...)
   if a:0 == 1
-    if a:1 !=# tabpagecolorscheme#colors_name()
-      execute 'colorscheme ' . a:1
-      " Don't trust g:colors_name, because
-      "   1. Some legacy colorschemes do't define it
-      "   2. Some colorschemes even put wrong values; like wrong upcase/downcase.
-      " let t:colorscheme = g:colors_name
-      let t:colorscheme = a:1
-    endif
+    call tabpagecolorscheme#set(a:1)
   else
     echo t:colorscheme
+  endif
+endfunction
+
+function! tabpagecolorscheme#set(colorname)
+  if a:colorname !=# tabpagecolorscheme#colors_name()
+    execute 'colorscheme ' . a:colorname
+    " Don't trust g:colors_name, because
+    "   1. Some legacy colorschemes do't define it
+    "   2. Some colorschemes even put wrong values; like wrong upcase/downcase.
+    " let t:colorscheme = g:colors_name
+    let t:colorscheme = a:colorname
   endif
 endfunction
 

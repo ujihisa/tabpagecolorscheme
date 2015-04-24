@@ -6,7 +6,7 @@ if exists("g:loaded_tabpagecolorscheme")
 endif
 let g:loaded_tabpagecolorscheme = 1
 
-command! -bar -nargs=? -complete=customlist,tabpagecolorscheme#colors Tcolorscheme call tabpagecolorscheme#run(<f-args>)
+command! -bar -nargs=? -complete=customlist,tabpagecolorscheme#colors Tcolorscheme call tabpagecolorscheme#command(<f-args>)
 
 augroup TabpageColorscheme
   autocmd!
@@ -14,7 +14,7 @@ augroup TabpageColorscheme
         \   if !exists('t:colorscheme')
         \ |   let t:colorscheme = tabpagecolorscheme#colors_name()
         \ | endif
-        \ | call tabpagecolorscheme#run(t:colorscheme)
+        \ | call tabpagecolorscheme#command(t:colorscheme)
   autocmd VimEnter * let t:colorscheme = tabpagecolorscheme#colors_name()
 augroup END
 
