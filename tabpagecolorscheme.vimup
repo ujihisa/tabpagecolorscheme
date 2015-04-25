@@ -13,6 +13,8 @@
 "install_details": |
   Just copy the file into your &rtp dir.
 "versions":
+  - '1.5': |
+      * also remember &background
   - '1.4': |
       * license: GPLv3+
       * bugfix: g:colors_name is bad
